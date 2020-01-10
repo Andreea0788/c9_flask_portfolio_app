@@ -17,6 +17,22 @@ def home_page():
 def profile(name):
 	return render_template('index.html', name=name)
 
+@app.route('/word_fequency', methods=['GET', 'POST'])
+def word_frequency_post():
+	
+	if request.method == 'GET':
+	  	return render_template('add_numbers.html')
+	  elif request.method == 'POST':
+			final_frequency ={}
+			for word in in request.form['text'].split():
+				if word not in final_frequency:
+					final frequency[word] = 1
+				else:
+					final_frequncy[word] +=1
+			return return render_template('add_numbers.html', result=final_frequency
+		
+	
+		  
 
 @app.route('/add_numbers', methods=['GET','POST'])
 def add_numbers_post():
